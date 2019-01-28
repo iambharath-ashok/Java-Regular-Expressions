@@ -1,4 +1,4 @@
-# Java-Regular-Expressions
+# Java Regular Expressions
 
 -	Regular expressions are used for defining String patterns 
 -	That can be used for searching, manipulating and editing a text
@@ -11,19 +11,19 @@
 ## Pattern.split() Examples
 
 
-class RegexExample2{  
-	public static void main(String args[]){  
-		String text = "ThisIsChaitanya.ItISMyWebsite"; // String
-		// Pattern for delimiter
-		String patternString = "is"; // Pattern  <===========
-		Pattern pattern = Pattern.compile(patternString, Pattern.CASE_INSENSITIVE); // Case Insensitive  <===========
-		String[] myStrings = pattern.split(text); // Split  <===========
-		for(String temp: myStrings){
-			System.out.println(temp);
+	class RegexExample2{  
+		public static void main(String args[]){  
+			String text = "ThisIsChaitanya.ItISMyWebsite"; // String
+			// Pattern for delimiter
+			String patternString = "is"; // Pattern  <===========
+			Pattern pattern = Pattern.compile(patternString, Pattern.CASE_INSENSITIVE); // Case Insensitive  <===========
+			String[] myStrings = pattern.split(text); // Split  <===========
+			for(String temp: myStrings){
+				System.out.println(temp);
+			}
+			System.out.println("Number of split strings: "+myStrings.length);
 		}
-		System.out.println("Number of split strings: "+myStrings.length);
 	}
-}
 
 --------------------------------------
 ## Methods :
@@ -87,65 +87,67 @@ Pattern.matches("abc", "abc");
 -	 Subtraction Class
 	-	"[0-9&&[^2468]]", "123456789"
 
-
-Pattern.matches("[pqr]", "abcd"); // false
-Pattern.matches("[pqr]", "r"); // false
-Pattern.matches("[pqr]", "pq"); // false
+		
+	Code :
+	
+		Pattern.matches("[pqr]", "abcd"); // false
+		Pattern.matches("[pqr]", "r"); // false
+		Pattern.matches("[pqr]", "pq"); // false
 
 ## Regex Character classes
 
-1	[abc]			: a, b, or c (simple class)
-2	[^abc]			: Any character except a, b, or c (negation)
-3	[a-zA-Z]		: a through z or A through Z, inclusive (range)
-4	[a-d[m-p]]		: a through d, or m through p: [a-dm-p] (union)
-5	[a-z&&[def]]	: d, e, or f (intersection)
-6	[a-z&&[^bc]]	: a through z, except for b and c: [ad-z] (subtraction)
-7	[a-z&&[^m-p]]	: a through z, and not m through p: [a-lq-z](subtraction)
+	1	[abc]			: a, b, or c (simple class)
+	2	[^abc]			: Any character except a, b, or c (negation)
+	3	[a-zA-Z]		: a through z or A through Z, inclusive (range)
+	4	[a-d[m-p]]		: a through d, or m through p: [a-dm-p] (union)
+	5	[a-z&&[def]]	: d, e, or f (intersection)
+	6	[a-z&&[^bc]]	: a through z, except for b and c: [ad-z] (subtraction)
+	7	[a-z&&[^m-p]]	: a through z, and not m through p: [a-lq-z](subtraction)
 
 --------------------------------------
 
 ## Predefined Character Classes – Metacharacters
 
-.   ->	Any character (may or may not match line terminators)
-\d  ->	A digit: [0-9]
-\D  ->	A non-digit: [^0-9]
-\s  ->	A whitespace character: [ \t\n\x0B\f\r]
-\S  ->	A non-whitespace character: [^\s]
-\w  ->	A word character: [a-zA-Z_0-9]
-\W  ->	A non-word character: [^\w]
+	.   ->	Any character (may or may not match line terminators)
+	\d  ->	A digit: [0-9]
+	\D  ->	A non-digit: [^0-9]
+	\s  ->	A whitespace character: [ \t\n\x0B\f\r]
+	\S  ->	A non-whitespace character: [^\s]
+	\w  ->	A word character: [a-zA-Z_0-9]
+	\W  ->	A non-word character: [^\w]
 
-For e.g.
-Pattern.matches("\\d", "1"); would return true
-Pattern.matches("\\D", "z"); return true
-Pattern.matches(".p", "qp"); return true, dot(.) represent any character
+	For e.g.
+	Pattern.matches("\\d", "1"); would return true
+	Pattern.matches("\\D", "z"); return true
+	Pattern.matches(".p", "qp"); return true, dot(.) represent any character
 
 --------------------------------------
 ## Boundary Matchers
 
-^	Matches the beginning of a line.
-$	Matches then end of a line.
-\b	Matches a word boundary.
-\B	Matches a non-word boundary.
-\A	Matches the beginning of the input text.
-\G	Matches the end of the previous match
-\Z	Matches the end of the input text except the final terminator if any.
-\z	Matches the end of the input text.
+	^	Matches the beginning of a line.
+	$	Matches then end of a line.
+	\b	Matches a word boundary.
+	\B	Matches a non-word boundary.
+	\A	Matches the beginning of the input text.
+	\G	Matches the end of the previous match
+	\Z	Matches the end of the input text except the final terminator if any.
+	\z	Matches the end of the input text.
 
-Pattern.matches("^Hello$", "Hello"): return true, Begins and ends with Hello
-Pattern.matches("^Hello$", "Namaste! Hello"): return false, does not begin with Hello
-Pattern.matches("^Hello$", "Hello Namaste!"): return false, Does not end with Hello
---------------------------------------
+	Pattern.matches("^Hello$", "Hello"): return true, Begins and ends with Hello
+	Pattern.matches("^Hello$", "Namaste! Hello"): return false, does not begin with Hello
+	Pattern.matches("^Hello$", "Hello Namaste!"): return false, Does not end with Hello
+	--------------------------------------
 
 ## Quantifiers
 
-Greedy	   : Matches
+	Greedy	   : Matches
 
-X?		   : Matches X once, or not at all (0 or 1 time)
-X*		   : Matches X zero or more times
-X+		   : Matches X one or more times
-X{n}? 	   : Matches X exactly n times
-X{n,} 	   : Matches X at least n times
-X{n, m)	   : Matches X at least n time, but at most m times
+	X?		   : Matches X once, or not at all (0 or 1 time)
+	X*		   : Matches X zero or more times
+	X+		   : Matches X one or more times
+	X{n}? 	   : Matches X exactly n times
+	X{n,} 	   : Matches X at least n times
+	X{n, m)	   : Matches X at least n time, but at most m times
 
 --------------------------------------
 ## 	Look-ahead and Look-behind (?=) and (?<=)
@@ -425,7 +427,6 @@ Example Set 3:
 	}
  
 --------------------------------------------------
-
 
 
 
