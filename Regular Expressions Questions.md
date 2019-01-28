@@ -94,7 +94,7 @@
 	Therefore, to use | as a literal, you need to escape it by adding \ in front of it, like \\|.
 
 ----------------------------------------------
-## rite a Regular expression to Repeating characters
+## Write a Regular expression to Repeating characters
 
 	String str = "aaabbbcc fgedaaaacccgg";
 	String[] split = str.split("(\\w)\\1+");
